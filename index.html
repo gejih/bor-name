@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*结构的描绘*/
+        html,body{
+            width:100%;
+        }
+      body{
+        background-color: #000;
+      }
+      
+      .container{
+        height:300px;
+        width:300px;
+        margin: 50px;
+      }
+      .person{
+        position:absolute;
+        left:150px;
+        top:160px;
+        animation: sprint 10s infinite ease-in;
+      }
+      .head{
+        position: absolute;
+        width:35px;
+        height: 35px;
+        border: 10px solid #fff;
+        border-radius: 50%;
+        top: 123px;
+        left: -6px;
+      }
+      .torso{
+        width:0;
+        height: 60px;
+        border-left: 10px solid #fff;
+        position: absolute;
+        left:12px;
+        top:169px;
+      }
+ 
+        .person.part{
+            position: absolute;
+            left: -6px;
+            top: 123px;
+        }
+
+       .person .part.arm{
+        width: 40px;
+        height: 45px;
+        border-left: 10px solid #fff;
+        border-bottom: 10px solid #fff;
+        position: absolute;
+        top: 173px;
+        left:12px;
+        transform-origin: 0% 0% 0px;
+        animation: pump 1s infinite ease-in-out;
+       }
+       .person .part.arm.one{
+        transform: rotate3d(0,0,1,51deg);
+       }
+       .person .part.arm.two{
+        transform: rotate3d(0,0,1,-24deg);
+        animation-delay: 0.5s;
+       }
+       .person .part.leg{
+        height: 50px;
+        width: 45px;
+        border-right: 10px solid #fff;
+        border-top: 10px solid #fff;
+        position: absolute;
+        top: 225px;
+        left:21px;
+        transform-origin: 0% 0% 0px;
+        animation: run 1s infinite ease-in;
+       }
+      .person .part.leg.one{
+    transform: rotate3d(0,0,1,108deg);
+   }
+   .person .part.leg.two{
+    transform: rotate3d(0,0,1,15deg);
+    animation-delay: 0.5s;
+   }
+   /*动画*/
+   @keyframes pump{
+    0%{
+        transform: rotate3d(0,0,1,51deg);
+    }
+    50%{
+        transform: rotate3d(0,0,1,-24deg);
+    }
+    100%{
+        transform: rotate3d(0,0,1,51deg);
+    }
+}
+   @keyframes run{
+    0%{
+        transform: rotate3d(0,0,1,108deg);
+    }
+    50%{
+        transform: rotate3d(0,0,1,15deg);
+    }
+    100%{
+        transform: rotate3d(0,0,1,108deg);
+    }
+}
+   @keyframes sprint{
+    0%{
+        transform: translate(-200px,0px);
+    }
+    100%{
+        transform: translate(1800px,0px);
+    }
+}
+   p{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+   }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="person">
+            <p>你</p>
+            <div class="head"></div>
+            <div class="part arm one"></div>
+            <div class="part arm two"></div>
+            <div class="torso"></div>
+            <div class="part leg one"></div>
+            <div class="part leg two"></div>
+        </div>
+       
+
+    </div>
+</body>
+</html>
